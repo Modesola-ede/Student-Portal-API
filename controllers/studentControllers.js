@@ -1,7 +1,6 @@
-const studentModel = require('../models/studentModel')
+import studentModel from "../models/studentModel.js"
 
-//CREATE student 
- const createStudent = async (req, res) => {
+ export const createStudent = async (req, res) => {
     try {
         const { name, email, regNo } = req.body
         const student = await studentModel.create({
@@ -16,8 +15,7 @@ const studentModel = require('../models/studentModel')
     }
 }
 
-//SINGLE GET :
- const getSinglestudent = async (req, res) => {
+ export const getSinglestudent = async (req, res) => {
     try {
         const { id } = req.params
 
@@ -38,14 +36,12 @@ const studentModel = require('../models/studentModel')
         })
     }
   }
-//findById
-//find_by_id
-//UPDATE student :
- const updateStudent = async (req, res) => {
+
+ export const updateStudent = async (req, res) => {
     try {
         const { id } = req.params
         const { name} = req.body
-        const update = await studentModel.findByIdAndUpdate(Id, {
+        const update = await studentModel.findByIdAndUpdate(id, {
             name
         }, { new: true })
 
@@ -61,11 +57,11 @@ const studentModel = require('../models/studentModel')
   }
 
 
-//DELETE student :
- const deleteStudent = async (req, res) => {
+
+ export const deleteStudent = async (req, res) => {
     try {
         const { id } = req.params
-        const deleteStudent = await studentModel.findByIdAndDelete(Id)
+        const deleteStudent = await studentModel.findByIdAndDelete(id)
         return res.status(200).json({
             message: "Student profile deleted successfully",
             data: deleteStudent
@@ -76,5 +72,3 @@ const studentModel = require('../models/studentModel')
         })
     }
   }
-
-module.exports = { createStudent, getSinglestudent, updateStudent, deleteStudent}

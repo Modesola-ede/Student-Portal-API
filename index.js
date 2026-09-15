@@ -1,8 +1,8 @@
-const express = require('express');
+import express from "express";
 
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
-const studentRoute = require("./routes/studentRoutes.js")
+import studentRoute from './routes/studentRoutes.js';
 
 const compass_string = "mongodb://localhost:27017/StudentDataBase";
 const atlas = "mongodb+srv://modesolaedebor_db_user:BeefStew_ILoveChickenMoreThough123@cluster0.cjj5diy.mongodb.net/StudentDataBase?appName=Cluster0"
